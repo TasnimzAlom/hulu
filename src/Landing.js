@@ -1,9 +1,10 @@
-import React from 'react'
+import {  Snackbar } from '@material-ui/core';
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import Header from "./Header";
 import Landing2 from './Landing2';
 import LandingTable from './LandingTable';
-
+import {GrClose} from "react-icons/gr"
 
 const LandingBg = styled.section`
 
@@ -87,6 +88,11 @@ font-weight:600;
 font-size:14px;
 border-radius:3px;
 border:none;
+cursor:pointer;
+
+&:hover{
+    background:rgba(255, 255, 255, 0.815);
+}
 `;
 
 const BundleBtn2 = styled.button`
@@ -100,7 +106,11 @@ margin-bottom:1rem;
 color:white;
 font-weight:600;
 font-size:14px;
-
+cursor:pointer;
+ 
+&:hover{
+    border: 2px solid grey;
+}
 `;
 
 const DetailTxt = styled.p`
@@ -110,6 +120,8 @@ padding-bottom:2rem;
 
 span{
     text-decoration:underline;
+    cursor:pointer;
+
 }
 `;
 
@@ -130,30 +142,57 @@ padding-bottom:1rem;
 
 
 const Landing = () => {
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = ( reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+  
+    const action = (
+        <React.Fragment>
+          
+         
+            <GrClose fontSize="small" onClick={handleClose} />
+          
+        </React.Fragment>
+      );
+
     return (
-        <LandingBg>
-    
-
-    
-
+        <LandingBg> 
             <HeroLand>  
-                <Header/>
+                {/* <Header/> */}
                 <LandBox1>
                 <MobileText>BUNDLE WITH ANY TULU PLAN & SAVE</MobileText>
                 <BundleImg src="https://i.ibb.co/wSjsZs9/Group-1.png" alt="Group-1"/>
                 <MobileText2>Get endless entertainment, live sports, and the shows and movies you love.</MobileText2>
-                <BundleBtn>
+                <BundleBtn onClick={handleClick}>
                     GET THE DISNEY BUNDLE
                 </BundleBtn>
-                <DetailTxt><span>See details</span> and <span>Bundle terms</span>.</DetailTxt>
+                <Snackbar
+                  open={open}
+                  autoHideDuration={3000}
+                  onClose={handleClose}
+                  message="Just Kidding"
+                  action={action}
+                />
+                <DetailTxt ><span onClick={handleClick}>See details</span> and <span onClick={handleClick}>Bundle terms</span>.</DetailTxt>
                 </LandBox1>
                 <LandBox2>
                 <MobileText>TRY UP TO ONE MONTH FREE</MobileText>
                 <BundleImg2 src="https://i.ibb.co/HPcgh3J/Group.png" alt="Group"/>
                 <MobileText3>Here just for Tulu? Get thousands of TV shows and movies.</MobileText3>
-                <BundleBtn2>
+                <BundleBtn2 onClick={handleClick}>
                     START YOUR FREE TRIAL
                 </BundleBtn2>
+              
                 </LandBox2>
             </HeroLand>
             <TvLand>
