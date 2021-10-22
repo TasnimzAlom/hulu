@@ -1,22 +1,26 @@
 import React, {useState} from 'react';
 import styled, {ThemeProvider} from 'styled-components'
 import "./App.css";
-import Landing from "./Landing";
+import Landing from "./LandingPage/Landing";
 import Dropdown from "./Dropdown";
-import Header from './Header';
+import Header from './LandingPage/LandingHeader/Header';
 import {Route}from "react-router-dom"
-import Home from './Home';
-// import { ThemeProvider } from 'styled-components';
-import {UseDarkMode} from "./UseDarkMode";
+import {UseDarkMode} from "./HomePage/UseDarkMode";
 import {GlobalStyles, lightTheme, darkTheme} from "./GlobalStyles";
+import Home from './HomePage/Home';
+import Skeletons from './Skeletons';
 
 
-const StyledApp = styled.div``;
+const StyledApp = styled.div`
+
+`;
 
 function App() {
   const [theme, themeToggler] = UseDarkMode();
   const [isOpen, setIsOpen] = useState(false);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+ 
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -28,24 +32,29 @@ function App() {
   return (
   <ThemeProvider theme={themeMode}>
          <StyledApp >
-     <GlobalStyles/>
+            <GlobalStyles/>
           
          
-           <Header toggle={toggle}/>
+              <Header theme={theme} themeToggler={themeToggler} toggle={toggle}/>
      
-            <Dropdown isOpen={isOpen} toggle={toggle}/>
+                  <Dropdown isOpen={isOpen} toggle={toggle}/>
           
             
-          <Route exact path="/">
-            <Landing/>
-          </Route>
+                       <Route exact path="/">
+                        <Landing/>
+                       </Route>
 
-            <Route exact path="/Home">
-              <Home theme={theme} themeToggler={themeToggler}/>
-            </Route>
+                       <Route exact path="/home">
+                         <Home/>
+                       </Route>
+
+                       <Route exact path="/skeletons">
+                         <Skeletons/>
+                       </Route>
+    
           
-</StyledApp>
-</ThemeProvider>
+          </StyledApp>
+  </ThemeProvider>
   
   );
 }

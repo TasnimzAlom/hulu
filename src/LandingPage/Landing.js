@@ -1,10 +1,13 @@
 import {  Snackbar } from '@material-ui/core';
-import React,{useState} from 'react'
-import styled from 'styled-components'
-import Header from "./Header";
+import React,{useState} from 'react';
+import styled from 'styled-components';
 import Landing2 from './Landing2';
 import LandingTable from './LandingTable';
-import {GrClose} from "react-icons/gr"
+import {GrClose} from "react-icons/gr";
+
+
+
+
 
 const LandingBg = styled.section`
 
@@ -19,7 +22,7 @@ font-weight:600;
 
 const HeroLand = styled.div`
 // background:rgba(27, 26, 26, 0.383);
-background-image: url("https://i.ibb.co/VmPygPP/7c82af6f-4a38-49f7-930b-930b0a26572f.png") ;
+background-image: url("https://i.ibb.co/FJbPDJg/Group-2.png") ;
 background-repeat:no-repeat;
 height:100%;
 background-size:cover;
@@ -142,8 +145,10 @@ padding-bottom:1rem;
 
 
 const Landing = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
+
+  
     const handleClick = () => {
       setOpen(true);
     };
@@ -155,6 +160,8 @@ const Landing = () => {
   
       setOpen(false);
     };
+
+   
   
     const action = (
         <React.Fragment>
@@ -165,7 +172,10 @@ const Landing = () => {
         </React.Fragment>
       );
 
+      
+   
     return (
+    
         <LandingBg> 
             <HeroLand>  
                 {/* <Header/> */}
@@ -180,9 +190,13 @@ const Landing = () => {
                   open={open}
                   autoHideDuration={3000}
                   onClose={handleClose}
-                  message="Just Kidding"
+                  message="JUST KIDDING!"
                   action={action}
-                />
+                
+                  >
+           
+                
+                </Snackbar>
                 <DetailTxt ><span onClick={handleClick}>See details</span> and <span onClick={handleClick}>Bundle terms</span>.</DetailTxt>
                 </LandBox1>
                 <LandBox2>
@@ -211,5 +225,4 @@ const Landing = () => {
         </LandingBg>
     )
 }
-
 export default Landing

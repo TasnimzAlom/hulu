@@ -8,12 +8,11 @@ import { Avatar, Menu, MenuList } from '@material-ui/core';
 
 
 
-const Navbar = styled.div`
-background: rgb(0,0,0);
-// background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2883362502194522) 22%, rgba(0,0,0,0.5832800704441714) 40%, rgba(0,0,0,0.8950778232531601) 66%, rgba(0,0,0,1) 88%, rgba(0,0,0,1) 100%);
+
+const Navbar = styled.nav`
 height:4rem;
 z-index:15;
-color:white;
+// color:white;
 font:size: 14px;
 display:flex;
 align-items:center;
@@ -54,6 +53,8 @@ const MenuItems =styled(Link)`
 padding:0 1rem;
 font-weight:500;
 font-size:.8rem;
+text-decoration:none;
+
 `;
 
 const Logo = styled.img`
@@ -81,7 +82,7 @@ justify-content:space-between;
 
 
 
-const Header = ({toggle}) => {
+const Header = ({toggle, themeToggler}) => {
     const [anchorEl, setAnchorEl ] = useState(null);
 
 
@@ -94,18 +95,21 @@ const Header = ({toggle}) => {
         
     }
 
+    // console.log(theme);
+
+
     return (
         <Navbar 
         
         >
             <Logo src="https://i.ibb.co/m4W4jb1/Group-1.png" alt= "tulu logo"/>
             <HeaderMenu>
-            <MenuItems to="/Home">HOME</MenuItems>
-            <MenuItems>TV</MenuItems>
-            <MenuItems>MOVIES</MenuItems>
-            <MenuItems>HULUWEEN</MenuItems>
-            <MenuItems>MY STUFF</MenuItems>
-            <MenuItems>HUBS</MenuItems>
+            <MenuItems to="/home">HOME</MenuItems>
+            <MenuItems to="/skeletons">TV</MenuItems>
+            <MenuItems to="/">MOVIES</MenuItems>
+            <MenuItems to="/">HULUWEEN</MenuItems>
+            <MenuItems to="/">MY STUFF</MenuItems>
+            <MenuItems to="/">HUBS</MenuItems>
 
             </HeaderMenu>
             <EndIcons>
@@ -128,6 +132,7 @@ const Header = ({toggle}) => {
             
 
             >
+                <button onClick={() => themeToggler()}>change</button>
                 <MenuList>
                     Manage Profiles
                 </MenuList>

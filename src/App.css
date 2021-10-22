@@ -4,12 +4,24 @@
 * {
   margin:0;
   font-family: 'Maven Pro', sans-serif;
-  overflow-x:hidden;
+ 
   
 
 }
 body{
     background:rgb(47, 46, 46);
-   
+    background:rgba(255, 255, 255, 0.815);
+    overflow-x:hidden;
+}
 
+.skelBox{
+  padding:2rem;
+}
+
+.skel{
+  display:flex;
+  justify-content: space-around;
+  position:relative;
+  bottom: 3rem;
+ 
 }

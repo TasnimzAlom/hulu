@@ -5,6 +5,8 @@ import styled, {keyframes} from 'styled-components'
 import { BsChevronDown } from 'react-icons/bs';
 import {Link} from 'react-scroll'
 
+
+
 const Part2 = styled.section`
 background:#151516;
 
@@ -263,9 +265,11 @@ const Landing2 = () => {
         </React.Fragment>
       );
 
+     
 
     return (
         <Part2 >
+      
             <Limited>
                 <LimitedTxt>Tulu + LIVE TV</LimitedTxt>
                 <LimitedTxt1>Limited-Time Savings</LimitedTxt1>
@@ -273,11 +277,16 @@ const Landing2 = () => {
                 <LimitedTxt3>Offer for Tulu (ad-supported) + Live TV plan only. $54.99/month for 3 months, then $64.99/month. Ends 11:59 PM PST on 10/28/21. Tulu + Live TV discount offer valid for new and eligible returning subscribers (who have not had Tulu in the past 3 months) only. Tulu + Live TV free trial offer valid for new and eligible returning subscribers (who have not taken a free trial of Tulu in the past 12 months) only.<span> Additional terms apply.</span></LimitedTxt3>
                 <ViewChan onClick={handleClick}>VIEW CHANNELS IN YOUR AREA →</ViewChan>
                 <Snackbar
+                className="snackbar"
                   open={open}
                   autoHideDuration={3000}
                   onClose={handleClose}
                   message="Just Kidding"
                   action={action}
+                  severity="success"
+                  sx={{
+                    background: "success.main",
+                  }}
                 />
                 <Arrow>
                   <Link 

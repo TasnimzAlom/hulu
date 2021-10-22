@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { MdCheck } from 'react-icons/md';
-import { BsDashLg, BsFillCircleFill } from 'react-icons/bs';
-import Footer from './Footer';
+import { BsDashLg} from 'react-icons/bs';
+import Footer from '../Footer';
 
 
 
