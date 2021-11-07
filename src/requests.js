@@ -1,5 +1,7 @@
  const API_KEY = "e2f00f43612c7b61ed7f6a0e4f7c9bca";
 
+ 
+
  const requests = {
 
 
@@ -50,7 +52,7 @@
 	fetchSoapTv: `/discover/tv?api_key=${API_KEY}&with_genres=10766`,
 	fetchRealityTv: `/discover/tv?api_key=${API_KEY}&with_genres=10764`,
 
-	
+	fetchTv: `?api_key=${API_KEY}&language=en-US`,
 
 };
 

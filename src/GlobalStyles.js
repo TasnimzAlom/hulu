@@ -21,6 +21,10 @@ export const GlobalStyles = createGlobalStyle`
          border-left:${({ theme }) => theme.border};
 
        }
+
+       .secondary {
+           background:${({ theme }) => theme.background};
+       }
     }
 
  
@@ -29,14 +33,16 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme ={
     body:"whitesmoke",
     fontColor: "#000000",
-    border:"4px solid whitesmoke"
+    border:"4px solid whitesmoke",
+    background:"#EAEDF2"
 };
 
 
 export const darkTheme ={
     body:"#1E2126",
     fontColor: "whitesmoke",
-    border:"4px solid #1E2126"
+    border:"4px solid #1E2126",
+    background:"#292C33"
    
 
 };

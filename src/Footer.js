@@ -7,9 +7,7 @@ import { IoLogoInstagram} from 'react-icons/io';
 
 
 const FooterArea = styled.section`
-background:#EBEDF2;
 width:100%;
-
 `;
 
 const FooterIcons = styled.div`
@@ -18,6 +16,11 @@ width:169px;
 display:flex;
 justify-content:space-between;
 padding:2rem;
+
+@media only screen and (min-width: 300px) {
+
+    padding-bottom:.3rem;
+}
 
 
 `;
@@ -51,6 +54,11 @@ color:#656B7B;
 font-size:12px;
 padding:1rem;
 
+@media only screen and (min-width: 390px) {
+    display:flex;
+    justify-content:space-between;
+    padding-top:0;
+}
 
 `;
 
@@ -67,7 +75,7 @@ cursor:pointer;
 
 const Footer = () => {
     return (
-        <FooterArea>
+        <FooterArea className="secondary">
             <FooterIcons>
                 <Ficon1/>
                 <Ficon2/>

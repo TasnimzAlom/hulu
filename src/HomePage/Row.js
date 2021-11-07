@@ -11,6 +11,8 @@ import Skeletons from '../Skeletons';
 
 
 
+
+
 const StyledRow = styled.div`
 display:flex;
 flex-direction:column;
@@ -108,6 +110,7 @@ position:relative;
 top:2rem;
 right:2rem;
 
+
 &:hover{
     color:grey;
    transition:0.5s ease-in-out;
@@ -122,8 +125,41 @@ top:3px;
 
 `;
 
+// const ModalHero = styled.img`
+// height:100%;
+// width:100%;
+// `;
 
-const base_url = "https://image.tmdb.org/t/p/original";
+
+
+// const StyledModal = styled.div`
+// background:rgba(20, 20, 20, 0.8);
+// width:100vw;
+// height:100vh;
+// z-index:10;
+// position:fixed;
+// top:0;
+// left:0;
+// display:flex;
+// justify-content:center;
+
+
+// `;
+
+// const ModalContainer = styled.div`
+// width:90%;
+// height:90%;
+
+// margin-top:1rem;
+// overflow-y:scroll;
+
+
+
+// `;
+
+
+
+export const base_url = "https://image.tmdb.org/t/p/original";
 
 const settings = {
     dots: false,
@@ -162,9 +198,15 @@ const settings = {
 
 
 
-function Row ({ title, fetchUrl }) {
+function Row ({ title, fetchUrl}) {
     const [movies, setMovies] = useState([]);
-    
+    const [loaded, setLoaded] = useState(false);
+  
+ 
+
+    const imageLoaded = () => {
+      setLoaded(true);
+    };
 
     useEffect(() => {
         async function fetchData() {
@@ -181,36 +223,58 @@ function Row ({ title, fetchUrl }) {
 
     return (
        <>
-        {!movies ? <Skeletons/> :   
+      
+        {!loaded && <Skeletons/>}
         <StyledRow>
+        
          
             <TitlesRow>
-            <StyledTitle>{title}</StyledTitle>  
-            <ViewMoreRow>VIEW MORE <ArrowView/></ViewMoreRow>   
+            <StyledTitle onLoad={imageLoaded}>{title}</StyledTitle>  
+            <ViewMoreRow >VIEW MORE <ArrowView/></ViewMoreRow>   
             </TitlesRow>
              <RowPosters>
                  <Slider {...settings}>
-
+           
                      {movies.map(movie => {
-                            return   <PosterBox> 
+                            return   <>   
+                            <PosterBox> 
+                            
+                              
                                 
+                                             
+                                 
                                 <Dots/>
                                     <ArrowCircle id="icon"/>
-
-                                <RowPosterImg
+                             
+                                 <RowPosterImg  
                                 className="rowimg"
                                     key={movie.id}
                                     src={`${base_url}${movie.backdrop_path || movie.poster_path}`}
-                                    alt={movie.name} />
+                                    alt={movie.name} 
+                                    onLoad={imageLoaded}
+                                    
+                                    />   
+                            
+                                    
+                                    
+                                   
                                     <PosterTitle>{movie.title || movie.name || movie.original_title}</PosterTitle>
-                                    </PosterBox>
-                        })}
+                            
+                                    </PosterBox> 
+                                    
+                               
+      
+                                       
+                                    
+                                    </>
+                        })}  
+              
                  </Slider>
              </RowPosters>  
-    
-         
+                     
+            
         </StyledRow>
-                    }
+        
                     </>
     )
 }

@@ -102,14 +102,15 @@ const Header = ({toggle, themeToggler}) => {
         <Navbar 
         
         >
-            <Logo src="https://i.ibb.co/m4W4jb1/Group-1.png" alt= "tulu logo"/>
+            <Link to="/landing">
+            <Logo src="https://i.ibb.co/m4W4jb1/Group-1.png" alt= "tulu logo"/></Link>
             <HeaderMenu>
             <MenuItems to="/home">HOME</MenuItems>
-            <MenuItems to="/skeletons">TV</MenuItems>
-            <MenuItems to="/">MOVIES</MenuItems>
-            <MenuItems to="/">HULUWEEN</MenuItems>
-            <MenuItems to="/">MY STUFF</MenuItems>
-            <MenuItems to="/">HUBS</MenuItems>
+            <MenuItems to="/tvPage">TV</MenuItems>
+            <MenuItems to="/moviesPage">MOVIES</MenuItems>
+            
+            <MenuItems to="/myStuff">MY STUFF</MenuItems>
+            <MenuItems to="/hubs">HUBS</MenuItems>
 
             </HeaderMenu>
             <EndIcons>
@@ -142,7 +143,7 @@ const Header = ({toggle, themeToggler}) => {
                 <MenuList>
                     Help Center
                 </MenuList>
-                <MenuList>
+               <MenuList >
                     Log Out
                 </MenuList>
             </Menu>

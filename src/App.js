@@ -8,7 +8,13 @@ import {Route}from "react-router-dom"
 import {UseDarkMode} from "./HomePage/UseDarkMode";
 import {GlobalStyles, lightTheme, darkTheme} from "./GlobalStyles";
 import Home from './HomePage/Home';
-import Skeletons from './Skeletons';
+import TvPage from "./TvPage";
+import MoviesPage from "./MoviesPage";
+import MyStuff from './MyStuff';
+import Hubs from './Hubs';
+
+
+
 
 
 const StyledApp = styled.div`
@@ -19,8 +25,7 @@ function App() {
   const [theme, themeToggler] = UseDarkMode();
   const [isOpen, setIsOpen] = useState(false);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-
- 
+  
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -33,26 +38,41 @@ function App() {
   <ThemeProvider theme={themeMode}>
          <StyledApp >
             <GlobalStyles/>
-          
+            
          
               <Header theme={theme} themeToggler={themeToggler} toggle={toggle}/>
      
                   <Dropdown isOpen={isOpen} toggle={toggle}/>
           
             
-                       <Route exact path="/">
+                       <Route exact path="/landing">
                         <Landing/>
                        </Route>
 
                        <Route exact path="/home">
-                         <Home/>
+                         <Home />
                        </Route>
 
-                       <Route exact path="/skeletons">
-                         <Skeletons/>
+
+
+                       <Route exact path="/tvPage">
+                         <TvPage />
                        </Route>
     
-          
+                       <Route exact path="/moviesPage">
+                         <MoviesPage/>
+                       </Route>
+
+                       <Route exact path="/mystuff">
+                         <MyStuff/>
+                       </Route>
+
+                       <Route exact path="/hubs">
+                         <Hubs/>
+                       </Route>
+
+                   
+               
           </StyledApp>
   </ThemeProvider>
   

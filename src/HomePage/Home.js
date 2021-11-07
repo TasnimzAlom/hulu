@@ -1,21 +1,17 @@
 import React from 'react'
-
 import Row from './Row'
 import requests from '../requests'
+import LoggedFooter from '../LoggedFooter'
 
-
-const Home = () => {
-
-
-   
-
-
-    return (
+const Home = ({openModal}) => {
     
+    return (
+        <>
+
         <div>
         
       
-			<Row title="Trending" fetchUrl={requests.fetchTrendingMovies} />
+			<Row openModal={openModal} title="Trending" fetchUrl={requests.fetchTrendingMovies} />
 
 			<Row title="Top Rated" fetchUrl={requests.fetchTopRatedMovies} />
 
@@ -82,10 +78,10 @@ const Home = () => {
             <Row title="Reality Tv " fetchUrl={requests.fetchRealityTv} />
 
 
-
+<LoggedFooter/>
 
         </div>
-
+</>
         
     )
 }
